@@ -1,0 +1,21 @@
+// Package imports
+import { PrismaClient } from '@prisma/client'
+
+// Module imports
+import logger from '../middlewares/logger'
+
+const prisma = new PrismaClient()
+
+async function main() {
+  // ... you will write your Prisma Client queries here
+}
+
+main()
+    .then(async () => {
+    await prisma.$disconnect()
+    })
+    .catch(async (error) => {
+    logger.error(error)
+    await prisma.$disconnect()
+    process.exit(1)
+})
